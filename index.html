@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Agrinho 2026</title>
+
+<style>
+
+:root{
+    --text-color:#ffffff;
+    --overlay-color:rgba(0,0,0,0.45);
+    --menu-bg:rgba(255,255,255,0.95);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body.dark{
+    --overlay-color:rgba(0,0,0,0.55);
+}
+
+body.light{
+    --overlay-color:rgba(255,255,255,0.20);
+}
+
+.slide{
+    position:relative;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.slide::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    z-index:0;
+}
+
+.slide1::before{
+background-image:url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854");
+}
+
+.slide2::before{
+background-image:url("https://images.unsplash.com/photo-1464226184884-fa280b87c399");
+}
+
+.slide3::before{
+background-image:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef");
+}
+
+.slide4::before{
+background-image:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
+}
+
+.slide5::before{
+background-image:url("https://images.unsplash.com/photo-1461354464878-ad92f492a5a0");
+}
+
+.slide6::before{
+background-image:url("https://images.unsplash.com/photo-1500595046743-cd271d694d30");
+}
+
+.slide7::before{
+background-image:url("https://images.unsplash.com/photo-1492496913980-501348b61469");
+}
+
+.slide8::before{
+background-image:url("https://images.unsplash.com/photo-1464226184884-fa280b87c399");
+}
+
+.slide9::before{
+background-image:url("https://images.unsplash.com/photo-1472396961693-142e6e269027");
+}
+
+.slide10::before{
+background-image:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb");
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:var(--overlay-color);
+    z-index:1;
+}
+
+.conteudo{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:1000px;
+}
+
+#titulo{
+    color:var(--text-color);
+    font-size:clamp(2rem,5vw,5rem);
+}
+
+.caixa-texto{
+    max-width:900px;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(0,0,0,0.45);
+    color:var(--text-color);
+    font-size:clamp(1.2rem,2vw,1.8rem);
+    line-height:1.8;
+}
+
+.config-btn{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:28px;
+    z-index:1000;
+}
+
+.menu{
+    position:absolute;
+    top:90px;
+    right:20px;
+    width:280px;
+    padding:15px;
+    background:var(--menu-bg);
+    border-radius:15px;
+    display:none;
+    z-index:1000;
+}
+
+.menu button,
+.menu select,
+.menu input{
+    width:100%;
+    margin-top:10px;
+    padding:10px;
+}
+
+ul{
+    text-align:left;
+    margin-top:20px;
+    margin-left:25px;
+}
+
+.final{
+    font-size:2rem;
+}
+
+</style>
+</head>
+
+<body class="dark">
+
+<section class="slide slide1">
+
+<button class="config-btn" onclick="abrirMenu()">⚙️</button>
+
+<div class="menu" id="menu">
+
+<button onclick="alternarTema()">🌙 / ☀️</button>
+
+<select id="idioma" onchange="trocarIdioma()">
+<option value="pt">Português</option>
+<option value="en">English</option>
+<option value="es">Español</option>
+</select>
+
+<input
+type="color"
+id="corTexto"
+value="#ffffff"
+onchange="alterarCorTexto()">
+
+</div>
+
+<div class="overlay"></div>
+
+<div class="conteudo">
+<h1 id="titulo">
+O Desenvolvimento Agropecuário e o Cuidado Ambiental
+</h1>
+</div>
+
+</section>
+
+<section class="slide slide2">
+<div class="overlay"></div>
+<div class="conteudo">
+<div class="caixa-texto" id="texto-slide2">
+Atualmente, tem se tornado cada vez mais difícil equilibrar o cuidado ambiental e a crescente necessidade de aumento de produção, principalmente quando o crescimento populacional, a maior carência por alimentos e matérias-primas e a constante exportação exige cada vez mais deste setor.
+</div>
+</div>
+</section>
+
+<section class="slide slide3">
+<div class="overlay"></div>
+<div class="conteudo">
+<div class="caixa-texto" id="texto-slide3">
+No entanto, essa expansão de produção agropecuária deve ocorrer de forma harmoniosa com a natureza, assegurando a preservação dos recursos naturais para as futuras gerações.
+</div>
+</div>
+</section>
+
+<section class="slide slide4">
+<div class="overlay"></div>
+<div class="conteudo">
+<div class="caixa-texto" id="texto-slide4">
+A adoção de práticas agropecuárias sustentáveis contribui para a amplificação da produtividade sem causar grandes consequências ao ecossistema.
+</div>
+</div>
+</section>
+
+<section class="slide slide5">
+<div class="overlay"></div>
+<div class="conteudo">
+<div class="caixa-texto">
+
+<p id="texto-slide5a">
+Um exemplo de prática consciente é a rotação de culturas, que consiste na alternância de diferentes plantações em uma área ao decorrer do tempo.
+</p>
+
+<br><br>
+
+<p id="texto-slide5b">
+Essa técnica tem como benefícios:
+</p>
+
+<ul>
+<li id="beneficio1">Melhora da fertilidade do solo;</li>
+<li id="beneficio2">Diminuição da ocorrência de pragas;</li>
+<li id="beneficio3">Redução da necessidade de fertilizantes e agrotóxicos.</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<section class="slide slide6">
+<div class="overlay"></div>
+<div class="conteudo">
+<div class="caixa-texto" id="texto-slide6">
+
+Além disso, o investimento em tecnologias é um auxílio de extrema importância, pois o uso de aparelhos como drones, sensores e sistemas para a aplicação e pulverização de produtos agrotóxicos, fungicidas e herbicidas e irrigação de plantações ou pastos reduzem o desperdício destes mesmos e aumentam, também, a eficiência produtiva.
+
+<br><br>
+
+Com a preservação ambiental, poderiam ser usados os próprios insetos presentes na fauna local para o controle de pragas nas plantas.
+
+</div>
+</div>
+</section>
+
+<section class="slide slide7">
+<div class="overlay"></div>
+<div class="conteudo">
+<div class="caixa-texto" id="texto-slide7">
+
+Portanto, para garantir uma produção agropecuária forte e crescente e um futuro sustentável e equilibrado, é preciso apoiar práticas conscientes e facilitar o acesso a novas tecnologias.
+
+</div>
+</div>
+</section>
+
+<section class="slide slide8">
+<div class="overlay"></div>
+<div class="conteudo">
+<div class="caixa-texto" id="texto-slide8">
+
+Produtores rurais devem agir juntamente ao governo e às instituições de pesquisas e desenvolvimentos tecnológicos, que poderiam promover qualificações para a população, investimentos e políticas de incentivo à produção sustentável, como a diminuição de impostos para produtores que tenham algum tipo de ação para a proteção do meio ambiente.
+
+</div>
+</div>
+</section>
+
+<section class="slide slide9">
+<div class="overlay"></div>
+<div class="conteudo">
+<div class="caixa-texto" id="texto-slide9">
+
+Assim, por meio desta cooperação, será possível manter um desenvolvimento sustentável entre produção e meio ambiente, ajudando aos produtores, ao cenário ambiental e às futuras gerações.
+
+</div>
+</div>
+</section>
+
+<section class="slide slide10">
+<div class="overlay"></div>
+<div class="conteudo">
+
+<div class="caixa-texto final">
+
+<div id="texto-slide10a">
+Escrito por:
+</div>
+
+<br>
+
+<div id="texto-slide10b">
+Gabriela K. R. Camargo
+</div>
+
+<br><br>
+
+<div id="texto-slide10c">
+Projeto Agrinho 2026
+</div>
+
+<br><br>
+
+<div id="texto-slide10d">
+AGRO FORTE, FUTURO SUSTENTÁVEL:
+</div>
+
+<div id="texto-slide10e">
+EQUILÍBRIO ENTRE PRODUÇÃO E MEIO AMBIENTE
+</div>
+
+</div>
+
+</div>
+</section>
+
+<script>
+
+/* MENU */
+
+function abrirMenu(){
+
+    const menu =
+        document.getElementById("menu");
+
+    menu.style.display =
+        menu.style.display === "block"
+        ? "none"
+        : "block";
+}
+
+/* TEMA */
+
+function alternarTema(){
+
+    if(document.body.classList.contains("dark")){
+
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
+
+    }else{
+
+        document.body.classList.remove("light");
+        document.body.classList.add("dark");
+    }
+}
+
+/* COR DA LETRA */
+
+function alterarCorTexto(){
+
+    const cor =
+        document.getElementById("corTexto").value;
+
+    document.documentElement
+        .style.setProperty("--text-color", cor);
+}
+
+/* TRADUÇÕES */
+
+const traducoes = {
+
+pt:{
+
+titulo:"O Desenvolvimento Agropecuário e o Cuidado Ambiental",
+
+slide2:"Atualmente, tem se tornado cada vez mais difícil equilibrar o cuidado ambiental e a crescente necessidade de aumento de produção, principalmente quando o crescimento populacional, a maior carência por alimentos e matérias-primas e a constante exportação exige cada vez mais deste setor.",
+
+slide3:"No entanto, essa expansão de produção agropecuária deve ocorrer de forma harmoniosa com a natureza, assegurando a preservação dos recursos naturais para as futuras gerações.",
+
+slide4:"A adoção de práticas agropecuárias sustentáveis contribui para a amplificação da produtividade sem causar grandes consequências ao ecossistema.",
+
+slide5a:"Um exemplo de prática consciente é a rotação de culturas, que consiste na alternância de diferentes plantações em uma área ao decorrer do tempo.",
+
+slide5b:"Essa técnica tem como benefícios:",
+
+beneficio1:"Melhora da fertilidade do solo;",
+beneficio2:"Diminuição da ocorrência de pragas;",
+beneficio3:"Redução da necessidade de fertilizantes e agrotóxicos.",
+
+slide6:"Além disso, o investimento em tecnologias é um auxílio de extrema importância, pois o uso de aparelhos como drones, sensores e sistemas para a aplicação e pulverização de produtos agrotóxicos, fungicidas e herbicidas e irrigação de plantações ou pastos reduzem o desperdício destes mesmos e aumentam, também, a eficiência produtiva. Com a preservação ambiental, poderiam ser usados os próprios insetos presentes na fauna local para o controle de pragas nas plantas.",
+
+slide7:"Portanto, para garantir uma produção agropecuária forte e crescente e um futuro sustentável e equilibrado, é preciso apoiar práticas conscientes e facilitar o acesso a novas tecnologias.",
+
+slide8:"Produtores rurais devem agir juntamente ao governo e às instituições de pesquisas e desenvolvimentos tecnológicos, que poderiam promover qualificações para a população, investimentos e políticas de incentivo à produção sustentável, como a diminuição de impostos para produtores que tenham algum tipo de ação para a proteção do meio ambiente.",
+
+slide9:"Assim, por meio desta cooperação, será possível manter um desenvolvimento sustentável entre produção e meio ambiente, ajudando aos produtores, ao cenário ambiental e às futuras gerações."
+
+},
+
+en:{
+
+titulo:"Agricultural Development and Environmental Care",
+
+slide2:"Currently, it has become increasingly difficult to balance environmental protection and the growing need for increased production.",
+
+slide3:"However, this expansion of agricultural production must occur in harmony with nature.",
+
+slide4:"The adoption of sustainable agricultural practices contributes to increasing productivity without causing major consequences to the ecosystem.",
+
+slide5a:"An example of a conscious practice is crop rotation.",
+
+slide5b:"Benefits include:",
+
+beneficio1:"Improved soil fertility;",
+beneficio2:"Reduced pest occurrence;",
+beneficio3:"Reduced need for fertilizers and pesticides.",
+
+slide6:"Investment in technologies such as drones, sensors and irrigation systems increases efficiency and reduces waste.",
+
+slide7:"To ensure strong agricultural production and a sustainable future, it is necessary to support conscious practices and facilitate access to new technologies.",
+
+slide8:"Farmers should work together with governments and research institutions to encourage sustainable production.",
+
+slide9:"Through this cooperation, sustainable development between production and the environment will be possible."
+
+},
+
+es:{
+
+titulo:"El Desarrollo Agropecuario y el Cuidado Ambiental",
+
+slide2:"Actualmente es cada vez más difícil equilibrar el cuidado ambiental y la producción.",
+
+slide3:"Sin embargo, esta expansión debe realizarse en armonía con la naturaleza.",
+
+slide4:"La adopción de prácticas sostenibles contribuye al aumento de la productividad sin perjudicar el ecosistema.",
+
+slide5a:"Un ejemplo es la rotación de cultivos.",
+
+slide5b:"Sus beneficios incluyen:",
+
+beneficio1:"Mejora de la fertilidad del suelo;",
+beneficio2:"Disminución de plagas;",
+beneficio3:"Reducción del uso de fertilizantes y pesticidas.",
+
+slide6:"La inversión en tecnologías aumenta la eficiencia y reduce el desperdicio.",
+
+slide7:"Es necesario apoyar prácticas conscientes y facilitar el acceso a nuevas tecnologías.",
+
+slide8:"Los productores deben actuar junto con gobiernos e instituciones de investigación.",
+
+slide9:"Mediante esta cooperación será posible mantener un desarrollo sostenible."
+
+}
+
+};
+
+function trocarIdioma(){
+
+const idioma =
+document.getElementById("idioma").value;
+
+document.getElementById("titulo").innerText =
+traducoes[idioma].titulo;
+
+document.getElementById("texto-slide2").innerText =
+traducoes[idioma].slide2;
+
+document.getElementById("texto-slide3").innerText =
+traducoes[idioma].slide3;
+
+document.getElementById("texto-slide4").innerText =
+traducoes[idioma].slide4;
+
+document.getElementById("texto-slide5a").innerText =
+traducoes[idioma].slide5a;
+
+document.getElementById("texto-slide5b").innerText =
+traducoes[idioma].slide5b;
+
+document.getElementById("beneficio1").innerText =
+traducoes[idioma].beneficio1;
+
+document.getElementById("beneficio2").innerText =
+traducoes[idioma].beneficio2;
+
+document.getElementById("beneficio3").innerText =
+traducoes[idioma].beneficio3;
+
+document.getElementById("texto-slide6").innerText =
+traducoes[idioma].slide6;
+
+document.getElementById("texto-slide7").innerText =
+traducoes[idioma].slide7;
+
+document.getElementById("texto-slide8").innerText =
+traducoes[idioma].slide8;
+
+document.getElementById("texto-slide9").innerText =
+traducoes[idioma].slide9;
+}
+
+</script>
+
+</body>
+</html>
